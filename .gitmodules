@@ -1,3 +1,6 @@
 [submodule "OpenFX"]
-	path = OpenFX
+	path = common/OpenFX
 	url = https://github.com/NatronGitHub/openfx
+[submodule "common/RtMidi"]
+	path = common/RtMidi
+	url = https://github.com/thestk/rtmidi
