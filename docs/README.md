@@ -1,4 +1,5 @@
 # openfx-midi
+![logo](net.sf.openfx.Midi.png)
 
 OpenFX plugin that can communicate with MIDI controllers.
 
