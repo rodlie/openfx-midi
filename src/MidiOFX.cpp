@@ -130,6 +130,7 @@ MidiPlugin::MidiPlugin(OfxImageEffectHandle handle)
 
 MidiPlugin::~MidiPlugin()
 {
+    if (_midiIn->isPortOpen()) { _midiIn->closePort(); }
 }
 
 void MidiPlugin::render(const RenderArguments &args)
