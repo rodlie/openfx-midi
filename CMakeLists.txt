@@ -111,11 +111,6 @@ target_compile_definitions(
     NOMINMAX
 )
 
-#include_directories(
-#    ${FONTCONFIG_INCLUDE_DIRS}
-#    ${PANGO_INCLUDE_DIRS}
-#)
-
 target_link_libraries(
     ${PROJECT_NAME}
     ${OPENGL_gl_LIBRARY}
