@@ -1,13 +1,7 @@
 # openfx-midi
 ![logo](net.sf.openfx.Midi.png)
 
-OpenFX plugin that can communicate with MIDI controllers.
-
-## Requirements
-
-* OpenFX compatible host application
-* JACK *(optional)*
-* ALSA *(on supported platforms)*
+OpenFX plugin that communicates with MIDI controllers.
 
 ## Build
 
