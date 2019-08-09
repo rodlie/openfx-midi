@@ -3,38 +3,6 @@
 
 OpenFX plugin that communicates with MIDI controllers.
 
-## Build and install *(for Linux/BSD)*
-
-```
-git clone https://github.com/rodlie/openfx-midi
-cd openfx-midi
-git submodule update -i
-mkdir build && cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr/OFX/Plugins ..
-make
-sudo make install
-```
-
-## Build for Windows *(on Linux/BSD/macOS)*
-
-```
-git clone https://github.com/rodlie/openfx-midi
-cd openfx-midi
-git submodule update -i
-git clone https://github.com/mxe/mxe
-cd mxe
-make MXE_TARGETS='x86_64-w64-mingw32.static' cc cmake
-cd ..
-export PATH=`pwd`/mxe/usr/bin:$PATH
-mkdir build && cd build
-x86_64-w64-mingw32.static-cmake -DCMAKE_INSTALL_PREFIX=/ ..
-make
-x86_64-w64-mingw32.static-strip -s Midi.ofx
-make DESTDIR=`pwd`/output install
-mv output/Midi.ofx.bundle .
-zip -9 -r Midi.ofx.bundle.zip Midi.ofx.bundle
-```
-
 ## License
 
 ### openfx-midi
