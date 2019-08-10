@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Build on CentOS7 for Linux and Windows
+#
 
 CWD=`pwd`
 TMP="$CWD/tmp"
