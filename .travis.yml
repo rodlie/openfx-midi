@@ -1,0 +1,18 @@
+sudo: required
+dist: xenial
+language: cpp
+
+compiler:
+  - gcc
+
+before_install:
+  - sudo apt-get install -y cmake libasound2-dev
+
+script:
+  - git submodule update -i
+  - mkdir -p build
+  - cd build
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr/OFX/Plugins ..
+  - make 
+  - sudo make install
+
