@@ -34,13 +34,13 @@
     "This node was written by Ole-André Rodlie and " \
     "licenced under the LGPL version 2.1 (or later). " \
     "This node uses RtMidi (https://github.com/thestk/rtmidi) " \
-    "as a backend for cross-platform MIDI support. " \
+    "for cross-platform MIDI support. " \
     "The RtMidi license is similar to the MIT License, " \
     "with the added feature that modifications be sent to the developer."
 
-#define kParamPort "port"
-#define kParamPortLabel "Port"
-#define kParamPortHint "MIDI input port (device)."
+#define kParamMidiInputPort "portIn"
+#define kParamMidiInputPortLabel "Input Port"
+#define kParamMidiInputPortHint "MIDI input port (device)."
 
 #define kParamMidiInput "input"
 #define kParamMidiInputLabel "Input"
@@ -112,7 +112,7 @@ MidiPlugin::MidiPlugin(OfxImageEffectHandle handle)
 , _paramsKey(MIDI_PARAMS,(IntParam*)NULL)
 , _paramsValue(MIDI_PARAMS,(IntParam*)NULL)
 {
-    _devices = fetchChoiceParam(kParamPort);
+    _devices = fetchChoiceParam(kParamMidiInputPort);
     assert(_devices);
 
     for (unsigned i = 0; i < MIDI_PARAMS; ++i) {
@@ -146,7 +146,7 @@ void MidiPlugin::changedParam(const InstanceChangedArgs &args,
         if (!_midiIn->isPortOpen()) {
             setPersistentMessage(Message::eMessageWarning, "", "MIDI input not connected");
         }
-    } else if (paramName == kParamPort) {
+    } else if (paramName == kParamMidiInputPort) {
         openInput();
     }
 }
@@ -221,9 +221,9 @@ void MidiPluginFactory::describeInContext(ImageEffectDescriptor &desc,
 
     PageParamDescriptor *page = desc.definePageParam("Controls");
     {
-        ChoiceParamDescriptor* param = desc.defineChoiceParam(kParamPort);
-        param->setLabel(kParamPortLabel);
-        param->setHint(kParamPortHint);
+        ChoiceParamDescriptor* param = desc.defineChoiceParam(kParamMidiInputPort);
+        param->setLabel(kParamMidiInputPortLabel);
+        param->setHint(kParamMidiInputPortHint);
         param->setAnimates(false);
         param->setLayoutHint(eLayoutHintDivider);
 
